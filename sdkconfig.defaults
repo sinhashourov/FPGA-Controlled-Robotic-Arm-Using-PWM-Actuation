@@ -1,0 +1,24 @@
+# ESP-IDF SDK configuration for 3-DOF Robotic Arm
+# Copy this file to sdkconfig.defaults in the esp32/ directory
+
+# Target chip
+CONFIG_IDF_TARGET="esp32"
+
+# Disable Wi-Fi and Bluetooth to avoid ADC1 conflicts
+CONFIG_ESP32_WIFI_ENABLED=n
+CONFIG_BT_ENABLED=n
+
+# Use 240 MHz CPU for consistent timing
+CONFIG_ESP32_DEFAULT_CPU_FREQ_240=y
+
+# UART settings
+CONFIG_ESP_CONSOLE_UART_NUM=0
+CONFIG_ESP_CONSOLE_UART_BAUDRATE=115200
+
+# FreeRTOS tick rate (1 ms resolution)
+CONFIG_FREERTOS_HZ=1000
+
+# Enable ADC calibration
+CONFIG_ADC_CAL_EFUSE_VREF_ENABLE=y
+CONFIG_ADC_CAL_EFUSE_TP_ENABLE=y
+CONFIG_ADC_CAL_LUT_ENABLE=y
